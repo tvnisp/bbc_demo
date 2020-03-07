@@ -41,7 +41,7 @@ function displayArticle(data) {
       DOM.heading.innerText = el.model.text;
     }
     if (el.type == "image") {
-      DOM.img.insertAdjacentHTML("beforeend", `<img class="mt-2 mr-2" src="${el.model.url}" alt="${el.model.altText}">`)
+      DOM.img.insertAdjacentHTML("beforeend", `<img class="mt-2 mb-2" src="${el.model.url}" alt="${el.model.altText}">`)
     }
     if (el.type == "paragraph") {
       DOM.paragraph.insertAdjacentHTML("beforeend", `<p>${el.model.text}</p>`);
@@ -107,6 +107,7 @@ const controlView = async () => {
       count++
     })
     .catch(error => {
+      cleanLast()
       displayError(error)
     })
   } else {
