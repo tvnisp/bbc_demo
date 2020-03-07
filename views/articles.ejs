@@ -1,0 +1,26 @@
+<%- include("./partials/header")%>
+
+<div class="container pt-5" id="grow">
+  <p class="count float-right"></p>
+  <article>
+    <h1 class="title"></h1>
+    <h2 class="heading"></h2>
+    <div class="img"></div>
+    <div class="paragraph">
+      <p></p>
+    </div>
+    <div class="list">  
+    </div>
+  </article>
+
+  <button type="button" class="btn btn-secondary mt-3 mb-3 pr-3 pl-3" id="next-article">Next</button>
+
+
+  <form action="/articles" method="post" class="submit-formula">
+    <h3>Please give us a ranking for the articles you have read</h3>
+    <textarea name="article-review" id="article-review" cols="100" rows="5"></textarea>
+    <button class="btn btn-secondary mt-1 pr-3 pl-3" id="submit">Submit</button>
+  </form>
+</div>
+
+<%- include ("./partials/footer")%>

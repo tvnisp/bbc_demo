@@ -1,0 +1,19 @@
+{
+  "name": "bbc_demo2",
+  "version": "1.0.0",
+  "description": "BBC_DEMO",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "author": "tvnisp",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
