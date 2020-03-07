@@ -1,7 +1,7 @@
 const express   = require("express"),
       app       = express(),
       bodyParser= require("body-parser"),
-      port      = 4000;
+      port      = 5000;
 
 //Set the app
 app.set("view engine", "ejs");
@@ -21,6 +21,6 @@ app.post("/articles", (req, res) => {
   res.render("sent");
 })
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
   console.log("The app is running");
 })
