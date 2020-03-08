@@ -11,7 +11,6 @@ let DOM = {
   list: document.querySelector(".list"),
   nextArticle: document.querySelector("#next-article"),
   submitFormula: document.querySelector(".submit-formula"),
-  image: document.querySelector(".image")
 }
 
 function init() {
