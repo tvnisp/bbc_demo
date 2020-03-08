@@ -29,7 +29,7 @@ function init() {
 
 // Display error
 function displayError(data) {
-  DOM.title.innerText = data
+  DOM.title.innerText = `${data}, Please check your internet connection and try again. Press the Home button from the navigation bar.`
 }
 
 // Display the article
@@ -41,7 +41,7 @@ function displayArticle(data) {
       DOM.heading.innerText = el.model.text;
     }
     if (el.type == "image") {
-      DOM.img.insertAdjacentHTML("beforeend", `<img class="mt-2 mb-2" src="${el.model.url}" alt="${el.model.altText}">`)
+      DOM.img.insertAdjacentHTML("beforeend", `<img class="mt-2 mr-2" src="${el.model.url}" alt="${el.model.altText}">`)
     }
     if (el.type == "paragraph") {
       DOM.paragraph.insertAdjacentHTML("beforeend", `<p>${el.model.text}</p>`);
@@ -99,16 +99,15 @@ const controlView = async () => {
   if (count < 5) {    
     cleanLast()
     // Get new data and render
-    getArticle(articlesUnordered[count])
-    .then(data => {
-      displayArticle(data)
-    })
-    .then(() => {
-      count++
-    })
-    .catch(error => {
-      cleanLast()
-      displayError(error)
+      getArticle(articlesUnordered[count])
+      .then(data => {
+        displayArticle(data)
+      })
+      .then(() => {
+        count++
+      })
+      .catch(error => {
+        displayError(error)
     })
   } else {
     cleanLast()
