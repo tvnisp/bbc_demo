@@ -6,7 +6,7 @@ const express   = require("express"),
 //Set the app
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Routes
 app.get("/", (req, res) => {
@@ -18,7 +18,7 @@ app.get("/articles", (req, res) => {
 })
 
 app.post("/articles", (req, res) => {
-  res.render("sent");
+  res.render("sent", {review : req.body.review});
 })
 
 app.listen(process.env.PORT || port, function() {
