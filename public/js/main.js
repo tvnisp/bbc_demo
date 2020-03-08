@@ -2,6 +2,7 @@ let articles = [1, 2 ,3 ,4 ,5],
     articlesUnordered = shuffle(articles),
     count = 0;
 
+// All selectors
 let DOM = {
   count: document.querySelector(".count"),
   title: document.querySelector(".title"),
@@ -13,6 +14,7 @@ let DOM = {
   submitFormula: document.querySelector(".submit-formula"),
 }
 
+// Display the first article
 function init() {
   getArticle(articlesUnordered[count])
   .then(data => {
@@ -24,14 +26,13 @@ function init() {
   .catch(error => {
     displayError(error)
   })
-  
 }
 
 // New image 
 function newImage(data){
   let random = Math.floor(Math.random()*1000);
   let image = new Image();
-  image.src = `https://picsum.photos/640/420/?random=sig${random}`;
+  image.src = `${data.model.url}=sig${random}`;
   image.alt = data.model.altText
   DOM.img.appendChild(image)
 }

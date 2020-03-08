@@ -9,20 +9,14 @@ body {
           flex-direction: column;
 }
 
+#grow {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 html {
   font-size: 14px;
-}
-
-@media only screen and (max-width: 700px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  html {
-    font-size: 10px;
-  }
 }
 
 .navbar {
@@ -103,12 +97,6 @@ footer p {
   text-align: center;
 }
 
-#grow {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
 .submit-formula {
   display: none;
   -webkit-box-orient: vertical;
@@ -133,11 +121,15 @@ img {
   }
 }
 
-textarea {
-  width: 100%;
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 12px;
+  }
 }
 
-.article-2 {
-  display: none;
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
