@@ -123,6 +123,7 @@ footer p {
 img {
   width: 640px;
   height: 420px;
+  margin: 10px 0 10px 0;
 }
 
 @media only screen and (max-width: 800px) {

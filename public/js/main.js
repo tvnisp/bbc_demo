@@ -10,7 +10,8 @@ let DOM = {
   paragraph: document.querySelector(".paragraph"),
   list: document.querySelector(".list"),
   nextArticle: document.querySelector("#next-article"),
-  submitFormula: document.querySelector(".submit-formula")
+  submitFormula: document.querySelector(".submit-formula"),
+  image: document.querySelector(".image")
 }
 
 function init() {
@@ -27,6 +28,15 @@ function init() {
   
 }
 
+// New image 
+function newImage(data){
+  let random = Math.floor(Math.random()*1000);
+  let image = new Image();
+  image.src = `https://picsum.photos/640/420/?random=sig${random}`;
+  image.alt = data.model.altText
+  DOM.img.appendChild(image)
+}
+
 // Display error
 function displayError(data) {
   DOM.title.innerText = `${data}, Please check your internet connection and try again. Press the Home button from the navigation bar.`
@@ -41,7 +51,7 @@ function displayArticle(data) {
       DOM.heading.innerText = el.model.text;
     }
     if (el.type == "image") {
-      DOM.img.insertAdjacentHTML("beforeend", `<img class="mt-2 mr-2" src="${el.model.url}" alt="${el.model.altText}">`)
+      newImage(el);
     }
     if (el.type == "paragraph") {
       DOM.paragraph.insertAdjacentHTML("beforeend", `<p>${el.model.text}</p>`);
