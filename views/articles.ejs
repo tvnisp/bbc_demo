@@ -1,15 +1,15 @@
 <%- include("./partials/header")%>
 
-<div class="container pt-5" id="grow">
+<section class="container pt-5" id="grow">
   <p class="count"></p>
   <article class="article">
-    <h1 class="title"></h1>
+    <!-- <h1 class="title"></h1>
     <h2 class="heading"></h2>
     <div class="img"></div>
     <div class="paragraph"></div>
-    <div class="list"></div>
+    <div class="list"></div> -->
   </article>
-
+  
   <button type="button" class="btn btn-secondary mt-3 mb-3 pr-3 pl-3" id="next-article">Next</button>
 
   <form action="/articles" method="post" class="submit-formula">
@@ -17,6 +17,7 @@
     <textarea name="review" id="article-review" cols="100" rows="5" required></textarea>
     <button class="btn btn-secondary mt-1 pr-3 pl-3" id="submit">Submit</button>
   </form>
-</div>
+</section>
 
+<script src="./js/main.js"></script>
 <%- include ("./partials/footer")%>
