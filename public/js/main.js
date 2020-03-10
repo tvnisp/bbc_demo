@@ -1,5 +1,5 @@
 // IIFE function
-(function articles(){
+var articles = (function(){
   let articles = [1, 2 ,3 ,4 ,5],
       articlesUnordered = shuffle(articles),
       count = 0;
@@ -118,6 +118,10 @@
     controlView()
   })
 
-  // Load the first article onload
-  renderArticle()
+  return {
+    init: renderArticle()
+  }
 })()
+
+  // Load the first article onload
+  articles.init()
