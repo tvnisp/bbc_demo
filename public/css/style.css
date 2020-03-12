@@ -119,6 +119,10 @@ textarea {
   height: 100px;
 }
 
+#last-article {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   img {
     width: 100%;
