@@ -70,7 +70,6 @@ const articles = (function(){
   function displayRanking() {
     DOM.article.innerHTML = "<h2>Ranking</h2>";
     DOM.nextArticle.style = "display: none";
-    DOM.lastArticle.style = "display: none";  
     DOM.submitFormula.style = "display: flex";
     DOM.count.style = "display: none";
   };
@@ -108,11 +107,19 @@ const articles = (function(){
     return array;
   };
 
+    // Display back button
+    function checkButton() {
+      if(count == 0 || count >= 5) {
+        DOM.lastArticle.style = "display: none";
+      } else {
+        DOM.lastArticle.style = "display: block";
+      }
+    }
+
   // Control view model
   function controlView() {
     // Check if more articles
-    if (count < 5 && count >=1) { 
-      DOM.lastArticle.style = "display: block";  
+    if (count < 5) {   
       cleanLast();
       renderArticle();
     } else {
@@ -125,12 +132,13 @@ const articles = (function(){
   DOM.nextArticle.addEventListener("click", () => {
     count++;
     controlView();
+    checkButton();
   });
 
   DOM.lastArticle.addEventListener("click", () => {   
       count--;
-      cleanLast();
-      renderArticle();
+      controlView();
+      checkButton();
   });
 
   return {
