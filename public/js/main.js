@@ -1,5 +1,5 @@
 // IIFE function
-var articles = (function(){
+const articles = (function(){
   let articles = [1, 2 ,3 ,4 ,5],
       articlesUnordered = shuffle(articles),
       count = 0;
