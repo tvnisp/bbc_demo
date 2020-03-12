@@ -118,6 +118,8 @@ const articles = (function(){
 
   // Control view model
   function controlView() {
+    // Display or not back button
+    checkButton();
     // Check if more articles
     if (count < 5) {   
       cleanLast();
@@ -132,13 +134,11 @@ const articles = (function(){
   DOM.nextArticle.addEventListener("click", () => {
     count++;
     controlView();
-    checkButton();
   });
 
   DOM.lastArticle.addEventListener("click", () => {   
       count--;
       controlView();
-      checkButton();
   });
 
   return {
