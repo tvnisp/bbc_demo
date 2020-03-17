@@ -123,6 +123,32 @@ textarea {
   display: none;
 }
 
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid black;
+  border-left: 5px solid grey;
+  border-right: 5px solid grey;
+  margin: 200px auto;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 @media only screen and (max-width: 800px) {
   img {
     width: 100%;

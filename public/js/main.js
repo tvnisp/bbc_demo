@@ -3,6 +3,16 @@ const articles = (function(){
   let articles = [1, 2 ,3 ,4 ,5],
       articlesUnordered = shuffle(articles),
       count = 0;
+      // articlesObject = [];
+
+  // Preload all 5 articles and load them in an object array
+  // function preloadArticles(){
+  //   articlesUnordered.forEach(async (el)  =>  {
+  //     let response = await fetch(`https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-${el}.json`);
+  //     let data = await response.json();
+  //     articlesObject.push(data);
+  //   });
+  // };
 
   // All target elements
   const DOM = {
@@ -12,7 +22,8 @@ const articles = (function(){
     title: document.querySelector(".title"),
     nextArticle: document.querySelector("#next-article"),
     submitFormula: document.querySelector(".submit-formula"),
-    lastArticle: document.querySelector("#last-article")
+    lastArticle: document.querySelector("#last-article"),
+    loader: document.querySelector(".loader")
     // heading: document.querySelector(".heading"),
     // img: document.querySelector(".img"),
     // paragraph: document.querySelector(".paragraph"),
@@ -23,6 +34,7 @@ const articles = (function(){
   function renderArticle(){
     getArticle(articlesUnordered[count])
     .then(data => {
+      DOM.loader.style = "display: none";
       displayArticle(data);
     })
     .catch(error => {
@@ -63,6 +75,8 @@ const articles = (function(){
           DOM.article.insertAdjacentHTML("beforeend", `<li>${el}</li>`);
         });
       };
+      DOM.nextArticle.style = "display: block";
+      checkButton();
     });
   };
 
@@ -77,13 +91,9 @@ const articles = (function(){
   //Clean last article
   function cleanLast() {
     DOM.article.innerHTML = "";
+    DOM.nextArticle.style = "display: none";
+    DOM.lastArticle.style = "display: none";
   };
-
-  // function cacheArticles(){
-  //   articlesUnordered.forEach(async (el)  =>  {
-  //    await fetch(`https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-${el}.json`);
-  //   });
-  // };
 
   //Load an article - New browsers
   async function getArticle(num) {
@@ -123,6 +133,7 @@ const articles = (function(){
     // Check if more articles
     if (count < 5) {   
       cleanLast();
+      DOM.loader.style = "display: block";
       renderArticle();
     } else {
       cleanLast();
