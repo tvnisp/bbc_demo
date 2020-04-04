@@ -57,8 +57,8 @@ html {
 
 .navbar a {
   padding: 3px;
-  -webkit-transition: background .5s;
-  transition: background .5s;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
 }
 
 .navbar a:hover {
@@ -131,8 +131,8 @@ textarea {
   border-left: 5px solid grey;
   border-right: 5px solid grey;
   margin: 200px auto;
-  -webkit-animation: spin 1s linear infinite;
-          animation: spin 1s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
+          animation: spin 0.5s linear infinite;
 }
 
 @-webkit-keyframes spin {
